@@ -4,13 +4,13 @@
 var brokenBD = LerArquivo()
 
 // For para varrer a estrutra do arquivo json já convertido
-for (var i in words) {
+for (var i in brokenBD) {
 
     // Executa a substituição dos caracteres especiais conforme solicitado
-    brokenBD[i]['name'] = CorrigirNome(words[i]['name'])
+    brokenBD[i]['name'] = CorrigirNome(brokenBD[i]['name'])
 
     // Converte o conteudo da variavel Price para Float caso o conteudo seja string
-    if (!Isnumber(words[i]['price'])) {
+    if (!Isnumber(brokenBD[i]['price'])) {
         brokenBD[i]['price'] = parseFloat(brokenBD[i]['price'])
     }
 
@@ -21,7 +21,7 @@ for (var i in words) {
 
 
 }
-// Exportar o novo JSON com os dados do array words
+// Exportar o novo JSON com os dados do array brokenBD
 
 SalvarArquivo(brokenBD)
 
