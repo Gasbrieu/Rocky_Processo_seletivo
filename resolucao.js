@@ -1,29 +1,29 @@
 
 //Correção de arquivo .json -
 
-var words = LerArquivo()
+var brokenBD = LerArquivo()
 
 // For para varrer a estrutra do arquivo json já convertido
 for (var i in words) {
 
     // Executa a substituição dos caracteres especiais conforme solicitado
-    words[i]['name'] = CorrigirNome(words[i]['name'])
+    brokenBD[i]['name'] = CorrigirNome(words[i]['name'])
 
     // Converte o conteudo da variavel Price para Float caso o conteudo seja string
     if (!Isnumber(words[i]['price'])) {
-        words[i]['price'] = parseFloat(words[i]['price'])
+        brokenBD[i]['price'] = parseFloat(brokenBD[i]['price'])
     }
 
     // corrigir o problema do Quantity
-    if (typeof words[i]['quantity'] == 'undefined') {
-        words[i] = quantityadd()
+    if (typeof brokenBD[i]['quantity'] == 'undefined') {
+        brokenBD[i] = quantityadd()
     }
 
 
 }
 // Exportar o novo JSON com os dados do array words
 
-SalvarArquivo(words)
+SalvarArquivo(brokenBD)
 
 //-----------Validação do Banco de dados---------------//
 
@@ -139,7 +139,7 @@ function SalvarArquivo(oObj) {
 
 //função para adicionar o quantity
 function quantityadd(){
-   var quantadd = { id: words[i]['id'], name: words[i]['name'], price: words[i]['price'], category: words[i]['category'], quantity: 0 }
+   var quantadd = { id: brokenBD[i]['id'], name: brokenBD[i]['name'], price: brokenBD[i]['price'], category: brokenBD[i]['category'], quantity: 0 }
 
    return quantadd
 }
