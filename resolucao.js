@@ -62,7 +62,7 @@ for (var i in BDsaida) {
 
 //Operação de Soma dos valores no campo price da array separados por categoria
 //Valor do campo 'price' multiplicado pelo campo 'quantity'
-//valores setados em 0 para soma em repetição
+
 var categoria = [];
 var nret = 0;
 
